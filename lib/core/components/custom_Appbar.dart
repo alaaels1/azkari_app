@@ -1,11 +1,9 @@
 import 'package:azkari_app/core/constants/app_colors.dart';
-import 'package:azkari_app/features/home/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class customAppbar extends StatelessWidget implements PreferredSizeWidget {
-  customAppbar({
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  CustomAppBar({
     super.key,
     required this.icon1,
     required this.onPressedIcon1,
@@ -29,7 +27,7 @@ class customAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leadingWidth: 80,
+      leadingWidth: 100,
       elevation: 10,
       automaticallyImplyLeading: false,
       leading: Row(
@@ -59,18 +57,16 @@ class customAppbar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ],
 
-      title: title == null
-          ? Text("Title is null")
-          : Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 24,
-                fontFamily: "Nasrat",
-                color: AppColors.secondaryColor,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
+      title: Text(
+        title,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 24,
+          fontFamily: "Nasrat",
+          color: AppColors.secondaryColor,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
       centerTitle: true,
       flexibleSpace: Container(
         decoration: BoxDecoration(

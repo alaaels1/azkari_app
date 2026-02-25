@@ -5,8 +5,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hijri/hijri_calendar.dart';
-import '../../core/constants/app_colors.dart';
-import '../../core/constants/app_strings.dart';
+import '../../../core/components/custom_button.dart';
+import '../../../core/constants/app_colors.dart';
+import '../../../core/constants/app_strings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,12 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.backgroundLightMode,
-      appBar: customAppbar(
+      appBar: CustomAppBar(
         icon1: Icons.push_pin_outlined,
         onPressedIcon1: () {},
         icon2: Icons.dark_mode_outlined,
         onPressedIcon2: () {},
-        icon3: Icons.menu,
+        icon3: Icons.settings,
         onPressedIcon3: () {},
         title: "أذكاري",
       ),
@@ -78,44 +79,34 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.thirdColor,
-                      elevation: 5,
-                      fixedSize: Size(screenWidth * 0.34, screenHeight * 0.17),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
+                  CustomButton(
+                    text: "أذكار المساء",
+                    color: AppColors.thirdColor,
+                    hoverColor: AppColors.basicColor, // اختاري اللي يعجبك
+                    textColor: AppColors.secondaryColor,
+                    fontSize: screenWidth * 0.04,
+                    height: screenHeight * 0.17,
+                    width: screenWidth * 0.34,
+                    radius: 5,
+                    borderWidth: 0,
+                    borderColor: Colors.transparent,
                     onPressed: () {},
-                    child: Text(
-                      "أذكار المساء",
-                      style: GoogleFonts.tajawal(
-                        color: AppColors.secondaryColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenWidth * 0.04,
-                      ),
-                    ),
+                    hoverTextColor: AppColors.thirdColor,
                   ),
                   SizedBox(width: screenHeight * 0.2),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.thirdColor,
-                      elevation: 5,
-                      fixedSize: Size(screenWidth * 0.34, screenHeight * 0.17),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
+                  CustomButton(
+                    text: "أذكار الصباح",
+                    color: AppColors.thirdColor,
+                    hoverColor: AppColors.accentYellow,
+                    textColor: AppColors.secondaryColor,
+                    fontSize: screenWidth * 0.04,
+                    height: screenHeight * 0.17,
+                    width: screenWidth * 0.34,
+                    radius: 5,
+                    borderWidth: 0,
+                    borderColor: Colors.transparent,
                     onPressed: () {},
-                    child: Text(
-                      "أذكار الصباح",
-                      style: GoogleFonts.tajawal(
-                        color: AppColors.secondaryColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenWidth * 0.04,
-                      ),
-                    ),
+                    hoverTextColor: AppColors.secondaryColor,
                   ),
                 ],
               ),
