@@ -1,5 +1,5 @@
-class mainStrings {
-  List<String> welcomeMessages = [
+class MainStrings {
+  static const List<String> welcomeMessages = [
     "أهلاً بمن أحبّه الله فهداه لذكره.",
     "نور الله قلبك كما أقبلت على ذكره.",
     "مرحبًا بكِ في رحاب الذكر والسكينة.",

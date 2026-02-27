@@ -1,13 +1,13 @@
 import 'dart:math';
 import 'package:azkari_app/core/components/custom_Appbar.dart';
+import 'package:azkari_app/core/theme/theme_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:hijri/hijri_calendar.dart';
-import '../../../core/components/custom_button.dart';
-import '../../../core/constants/app_colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/constants/app_strings.dart';
+import '../../settings/settings_screen.dart';
+import '../home_widgets/azkar_button_row.dart';
+import '../home_widgets/hijri_date_widget.dart';
+import '../home_widgets/welcome_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,116 +17,48 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final Random random = Random();
-  late String welcomeText;
+  final random = Random();
+  late final String welcomeText;
+
   @override
   void initState() {
-    welcomeText =
-        mainStrings().welcomeMessages[Random().nextInt(
-          mainStrings().welcomeMessages.length,
-        )];
     super.initState();
+    welcomeText = MainStrings
+        .welcomeMessages[random.nextInt(MainStrings.welcomeMessages.length)];
   }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    HijriCalendar.setLocal("ar");
-    final _hijri = HijriCalendar.now();
-
     return Scaffold(
-      backgroundColor: AppColors.backgroundLightMode,
       appBar: CustomAppBar(
         icon1: Icons.push_pin_outlined,
         onPressedIcon1: () {},
-        icon2: Icons.dark_mode_outlined,
-        onPressedIcon2: () {},
+        icon2: Theme.of(context).brightness == Brightness.dark 
+            ? Icons.light_mode_outlined 
+            : Icons.dark_mode_outlined,
+        onPressedIcon2: () {
+          context.read<ThemeCubit>().toggleTheme();
+        },
         icon3: Icons.settings,
-        onPressedIcon3: () {},
+        onPressedIcon3: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SettingScreen()),
+        ),
         title: "أذكاري",
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: screenWidth * 0.07),
-              child: Center(
-                child: Text(
-                  welcomeText,
-                  textDirection: TextDirection.rtl,
-                  style: GoogleFonts.tajawal(
-                    fontSize: screenWidth * 0.05,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.basicColor,
-                  ),
-                ),
-              ),
+            WelcomeSection(welcomeText: welcomeText),
+            AzkarButtonsRow(
+              onEveningPressed: () {
+                print('المساء');
+              },
+              onMorningPressed: () {
+                print('الصباح');
+              },
             ),
-            Center(
-              child: Text(
-                "أي الأذكار ترغب بقراءتها الآن؟",
-                textDirection: TextDirection.rtl,
-                style: GoogleFonts.tajawal(
-                  fontSize: screenWidth * 0.04,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.secondaryColor,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomButton(
-                    text: "أذكار المساء",
-                    color: AppColors.thirdColor,
-                    hoverColor: AppColors.basicColor, // اختاري اللي يعجبك
-                    textColor: AppColors.secondaryColor,
-                    fontSize: screenWidth * 0.04,
-                    height: screenHeight * 0.17,
-                    width: screenWidth * 0.34,
-                    radius: 5,
-                    borderWidth: 0,
-                    borderColor: Colors.transparent,
-                    onPressed: () {},
-                    hoverTextColor: AppColors.thirdColor,
-                  ),
-                  SizedBox(width: screenHeight * 0.2),
-                  CustomButton(
-                    text: "أذكار الصباح",
-                    color: AppColors.thirdColor,
-                    hoverColor: AppColors.accentYellow,
-                    textColor: AppColors.secondaryColor,
-                    fontSize: screenWidth * 0.04,
-                    height: screenHeight * 0.17,
-                    width: screenWidth * 0.34,
-                    radius: 5,
-                    borderWidth: 0,
-                    borderColor: Colors.transparent,
-                    onPressed: () {},
-                    hoverTextColor: AppColors.secondaryColor,
-                  ),
-                ],
-              ),
-            ),
-            RichText(
-              textDirection: TextDirection.rtl,
-              text: TextSpan(
-                style: GoogleFonts.cairo(
-                  fontSize: screenWidth * 0.03,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.settingIconsColor,
-                ),
-                children: [
-                  TextSpan(text: '${_hijri.dayWeName}, '),
-                  TextSpan(text: '${_hijri.hDay} '),
-                  TextSpan(text: '${_hijri.longMonthName} '),
-                  TextSpan(text: '${_hijri.hYear}هـ'),
-                ],
-              ),
-            ),
+            HijriDateWidget(),
           ],
         ),
       ),
