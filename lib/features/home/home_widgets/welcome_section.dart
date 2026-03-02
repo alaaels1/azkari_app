@@ -9,7 +9,6 @@ class WelcomeSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Column(
       children: [
@@ -22,8 +21,7 @@ class WelcomeSection extends StatelessWidget {
               style: GoogleFonts.tajawal(
                 fontSize: screenWidth * 0.05,
                 fontWeight: FontWeight.bold,
-                color: isDarkMode ? Colors.white : const Color(0xFF0D1B2A),
-              ),
+                color: Theme.of(context).textTheme.bodyLarge?.color,              ),
             ),
           ),
         ),
@@ -35,8 +33,11 @@ class WelcomeSection extends StatelessWidget {
             style: GoogleFonts.tajawal(
               fontSize: screenWidth * 0.04,
               fontWeight: FontWeight.bold,
-              color: isDarkMode ? Colors.white70 : const Color(0xFF1A2F45),
-            ),
+              color: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.color
+                  ?.withOpacity(0.8),            ),
           ),
         ),
       ],

@@ -8,7 +8,6 @@ class HijriDateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     HijriCalendar.setLocal('ar');
     final hijri = HijriCalendar.now();
 
@@ -16,10 +15,10 @@ class HijriDateWidget extends StatelessWidget {
       textDirection: TextDirection.rtl,
       text: TextSpan(
         style: GoogleFonts.cairo(
-          fontSize: screenWidth * 0.03,
-          fontWeight: FontWeight.w500,
-          color: isDarkMode ? Colors.white60 : const Color(0xFF868C94),
-        ),
+        fontSize: screenWidth * 0.03,
+        fontWeight: FontWeight.w500,
+        color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.7),
+      ),
         children: [
           TextSpan(text: '${hijri.dayWeName}, '),
           TextSpan(text: '${hijri.hDay} '),

@@ -21,7 +21,6 @@ class AzkarButtonsRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // أذكار المساء
           CustomButton(
             text: "أذكار المساء",
             color: AppColors.thirdColor,
@@ -39,7 +38,6 @@ class AzkarButtonsRow extends StatelessWidget {
 
           SizedBox(width: size.height * 0.2),
 
-          // أذكار الصباح
           CustomButton(
             text: "أذكار الصباح",
             color: AppColors.thirdColor,

@@ -4,6 +4,8 @@ import 'package:azkari_app/core/theme/theme_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'calendar/calendar_view.dart';
+
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
 
@@ -22,6 +24,7 @@ class _SettingScreenState extends State<SettingScreen> {
             appBar: CustomAppBar(
               icon1: Icons.push_pin_outlined,
               onPressedIcon1: () {},
+              icon2: false,
               icon3: Icons.keyboard_arrow_right_rounded,
               onPressedIcon3: () => Navigator.pop(context),
               title: 'الإعدادات',
@@ -35,7 +38,10 @@ class _SettingScreenState extends State<SettingScreen> {
                     ListTile(
                       title: const Text(
                         'الوضع الليلي',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       leading: Icon(
                         isDarkMode ? Icons.dark_mode : Icons.light_mode,
@@ -49,6 +55,26 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                     ),
                     const Divider(),
+                    ListTile(
+                      title: const Text(
+                        'تتبع التقدم',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      leading: Icon(Icons.calendar_month),
+
+                      trailing: IconButton(
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const ProgressScreen(),
+                          ),
+                        ),
+                        icon: Icon(Icons.chevron_right),
+                      ),
+                    ),
                   ],
                 ),
               ),

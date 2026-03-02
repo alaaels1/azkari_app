@@ -1,0 +1,1 @@
+enum ZekrType { morning, evening }
