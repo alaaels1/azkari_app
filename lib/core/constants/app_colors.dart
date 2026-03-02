@@ -11,7 +11,9 @@ class AppColors {
   static const Color zekrCardBackground = Color(0xFFF8FBFD);
   static const Color accentYellow = Color(0xFFFFB703);
 
-  static const Color backgroundDarkMode = Color(0xFF0B132B);
-  static const Color darkCardBackground = Color(0xFF1C2541);
+  static const Color backgroundDarkMode = Color(0xFF1B1C1F);
+  static const Color darkAppBarTop = Color(0xFF141518);
+  static const Color darkAppBarBottom = Color(0xFF1B1C1F);
+  static const Color darkCardBackground = Color(0xFF22232A);
   static const Color darkTextColor = Color(0xFFFFFFFF);
 }
