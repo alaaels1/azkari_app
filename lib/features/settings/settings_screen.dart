@@ -1,29 +1,25 @@
-import 'package:azkari_app/core/components/custom_Appbar.dart';
-import 'package:azkari_app/core/theme/theme_cubit.dart';
-import 'package:azkari_app/core/theme/theme_state.dart';
+import 'package:azkari_app/core/constants/app_colors.dart';
+import 'package:azkari_app/features/settings/widgets/delete_data_dialog.dart';
+import 'package:azkari_app/features/settings/widgets/setting_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../core/components/custom_Appbar.dart';
+import '../theme/theme_cubit.dart';
+import '../theme/theme_state.dart';
+import 'calendar/progress_screen.dart';
 
-import 'calendar/calendar_view.dart';
-
-class SettingScreen extends StatefulWidget {
+class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
 
-  @override
-  State<SettingScreen> createState() => _SettingScreenState();
-}
-
-class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeState>(
       builder: (context, state) {
         final isDarkMode = state.themeMode == ThemeMode.dark;
+
         return SafeArea(
           child: Scaffold(
             appBar: CustomAppBar(
-              icon1: Icons.push_pin_outlined,
-              onPressedIcon1: () {},
               icon2: false,
               icon3: Icons.keyboard_arrow_right_rounded,
               onPressedIcon3: () => Navigator.pop(context),
@@ -35,36 +31,29 @@ class _SettingScreenState extends State<SettingScreen> {
                 textDirection: TextDirection.rtl,
                 child: Column(
                   children: [
-                    ListTile(
-                      title: const Text(
-                        'الوضع الليلي',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+
+                    SettingTile(
+                      title: 'الوضع الليلي',
                       leading: Icon(
                         isDarkMode ? Icons.dark_mode : Icons.light_mode,
                         color: isDarkMode ? Colors.amber : Colors.blue,
                       ),
                       trailing: Switch(
                         value: isDarkMode,
-                        onChanged: (value) {
-                          context.read<ThemeCubit>().toggleTheme();
-                        },
+                        activeColor:AppColors.thirdColor,
+                        onChanged: (_) =>
+                            context.read<ThemeCubit>().toggleTheme(),
                       ),
                     ),
-                    const Divider(),
-                    ListTile(
-                      title: const Text(
-                        'تتبع التقدم',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      leading: Icon(Icons.calendar_month),
 
+                    const Divider(),
+
+                    SettingTile(
+                      title: 'تتبع التقدم',
+                      leading: Icon(
+                        Icons.date_range,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
                       trailing: IconButton(
                         onPressed: () => Navigator.push(
                           context,
@@ -72,9 +61,21 @@ class _SettingScreenState extends State<SettingScreen> {
                             builder: (_) => const ProgressScreen(),
                           ),
                         ),
-                        icon: Icon(Icons.chevron_right),
+                        icon: const Icon(Icons.chevron_right),
                       ),
                     ),
+
+                    const Divider(),
+
+                    SettingTile(
+                      title: 'حذف بياناتك',
+                      leading: const Icon(Icons.delete, color: Colors.red),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.chevron_right),
+                        onPressed: () => DeleteDataDialog.show(context),
+                      ),
+                    ),
+
                   ],
                 ),
               ),

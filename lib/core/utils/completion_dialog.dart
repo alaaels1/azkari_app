@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../features/settings/calendar/calendar_view.dart';
+import '../../features/settings/calendar/progress_screen.dart';
 
 void showCompletionDialog(BuildContext context, String azkarType) {
   showGeneralDialog(
@@ -71,7 +71,7 @@ void showCompletionDialog(BuildContext context, String azkarType) {
                         Navigator.pop(context);
                         Navigator.pop(context);
                       },
-                      child: const Text("الرئيسية"),
+                      child:  Text("الرئيسية" , style: TextStyle(color: Theme.of(context).primaryColor),),
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(

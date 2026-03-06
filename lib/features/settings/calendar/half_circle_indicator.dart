@@ -3,7 +3,7 @@ import 'dart:math';
 
 class HalfCirclePainter extends CustomPainter {
   final Color color;
-  final bool isLeft; // true = مساء (يسار) | false = صباح (يمين)
+  final bool isLeft;
 
   HalfCirclePainter({
     required this.color,
@@ -14,7 +14,7 @@ class HalfCirclePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = color
-      ..style = PaintingStyle.stroke  // ✅ border مش fill
+      ..style = PaintingStyle.stroke
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round;
 
@@ -22,13 +22,11 @@ class HalfCirclePainter extends CustomPainter {
     final radius = (size.width / 2) - 2;
 
     double startAngle;
-    double sweepAngle = pi; // 180 درجة
+    double sweepAngle = pi;
 
     if (isLeft) {
-      // ✅ المساء = النصف الأيسر (من أسفل لفوق)
       startAngle = pi / 2;
     } else {
-      // ✅ الصباح = النصف الأيمن (من فوق لأسفل)
       startAngle = -pi / 2;
     }
 
@@ -36,7 +34,7 @@ class HalfCirclePainter extends CustomPainter {
       Rect.fromCircle(center: center, radius: radius),
       startAngle,
       sweepAngle,
-      false, // ✅ false = مش بنوصل للمركز (border فقط)
+      false,
       paint,
     );
   }

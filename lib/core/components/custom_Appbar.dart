@@ -1,21 +1,19 @@
 import 'package:azkari_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/always_on_top/always_on_top_cubit.dart';
+import '../../features/always_on_top/always_on_top_states.dart';
+import '../../features/theme/theme_cubit.dart';
 
-import '../theme/theme_cubit.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
-    required this.icon1,
-    required this.onPressedIcon1,
     required this.icon2,
     required this.icon3,
     required this.onPressedIcon3,
     required this.title,
   });
-  final IconData icon1;
-  final VoidCallback onPressedIcon1;
   final bool icon2 ;
   final IconData icon3;
   final VoidCallback onPressedIcon3;
@@ -32,10 +30,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       leading: Row(
         children: [
-          IconButton(
-            onPressed: onPressedIcon1,
-            icon: Icon(icon1, color:  Theme.of(context).iconTheme.color,),
-            padding: EdgeInsets.zero,
+          BlocBuilder<PinCubit, PinState>(
+            builder: (context, state) {
+              final isPinned = context.read<PinCubit>().isPinned;
+              return IconButton(
+                onPressed: () {
+                  context.read<PinCubit>().togglePin();
+                },
+                icon: Icon(
+                  isPinned ? Icons.push_pin : Icons.push_pin_outlined,
+                ),
+                color: isPinned
+                    ? Theme.of(context).iconTheme.color
+                    : Theme.of(context).iconTheme.color,
+                padding: EdgeInsets.zero,
+              );
+            },
           ),
           if (icon2 )
             IconButton(

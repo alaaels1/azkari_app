@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:azkari_app/core/components/custom_Appbar.dart';
-import 'package:azkari_app/features/azkar/views/azkar_massa_view.dart';
-import 'package:azkari_app/features/azkar/views/azkar_sabah_view.dart';
+import 'package:azkari_app/features/azkar/AzkaraMassaView/azkar_massa_view.dart';
+import 'package:azkari_app/features/azkar/AzkarSabahView/azkar_sabah_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/constants/app_strings.dart';
@@ -32,47 +32,48 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-        icon1: Icons.push_pin_outlined,
-        onPressedIcon1: () {},
-        icon2: true,
-        icon3: Icons.settings,
-        onPressedIcon3: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const SettingScreen()),
-        ),
-        title: "أذكاري",
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            children: [
-              WelcomeSection(welcomeText: welcomeText),
-              AzkarButtonsRow(
-                onEveningPressed: ()=> Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BlocProvider(
-                      create: (context) =>
-                      AzkarCubit()..loadAzkar(ZekrType.evening),
-                      child: const AzkarMassaView(),
-                    ),
-                  ),                ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: CustomAppBar(
 
-                onMorningPressed: ()  => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BlocProvider(
-                      create: (context) =>
-                      AzkarCubit()..loadAzkar(ZekrType.morning),
-                      child: const AzkarSabahView(),
-                    ),
-                  ),                ),
-              ),
-              HijriDateWidget(),
-            ],
+          icon2: true,
+          icon3: Icons.settings,
+          onPressedIcon3: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SettingScreen()),
+          ),
+          title: "أذكاري",
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              children: [
+                WelcomeSection(welcomeText: welcomeText),
+                AzkarButtonsRow(
+                  onEveningPressed: ()=> Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BlocProvider(
+                        create: (context) =>
+                        AzkarCubit()..loadAzkar(ZekrType.evening),
+                        child: const AzkarMassaView(),
+                      ),
+                    ),                ),
+      
+                  onMorningPressed: ()  => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BlocProvider(
+                        create: (context) =>
+                        AzkarCubit()..loadAzkar(ZekrType.morning),
+                        child: const AzkarSabahView(),
+                      ),
+                    ),                ),
+                ),
+                HijriDateWidget(),
+              ],
+            ),
           ),
         ),
       ),
