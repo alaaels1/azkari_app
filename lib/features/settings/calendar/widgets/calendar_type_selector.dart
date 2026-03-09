@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 enum CalendarType { gregorian, hijri }
@@ -57,7 +56,7 @@ class CalenderTypeSelector extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: isSelected ? Colors.white : Colors.grey,
+              color: isSelected ?Theme.of(context).splashColor : Theme.of(context).primaryColor,
             ),
           ),
         ),
