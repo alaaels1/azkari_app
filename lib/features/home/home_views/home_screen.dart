@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: const AzkarMassaView(),
                       ),
                     ),                ),
-      
+
                   onMorningPressed: ()  => Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -71,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),                ),
                 ),
+                const SizedBox(height: 20),
                 HijriDateWidget(),
               ],
             ),

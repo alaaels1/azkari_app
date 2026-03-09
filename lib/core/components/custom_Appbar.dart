@@ -5,7 +5,6 @@ import '../../features/always_on_top/always_on_top_cubit.dart';
 import '../../features/always_on_top/always_on_top_states.dart';
 import '../../features/theme/theme_cubit.dart';
 
-
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
@@ -13,11 +12,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.icon3,
     required this.onPressedIcon3,
     required this.title,
+    this.actions,
   });
-  final bool icon2 ;
+  final bool icon2;
   final IconData icon3;
   final VoidCallback onPressedIcon3;
   final String title;
+  final List<Widget>? actions;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -25,50 +26,62 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leadingWidth: 100,
+      leadingWidth: 150,
       elevation: 10,
       automaticallyImplyLeading: false,
       leading: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           BlocBuilder<PinCubit, PinState>(
             builder: (context, state) {
               final isPinned = context.read<PinCubit>().isPinned;
-              return IconButton(
-                onPressed: () {
-                  context.read<PinCubit>().togglePin();
-                },
-                icon: Icon(
-                  isPinned ? Icons.push_pin : Icons.push_pin_outlined,
+              return SizedBox(
+                width: 48,
+                height: 48,
+                child: IconButton(
+                  onPressed: () {
+                    context.read<PinCubit>().togglePin();
+                  },
+                  icon: Icon(
+                    isPinned ? Icons.push_pin : Icons.push_pin_outlined,
+                  ),
+                  color: isPinned
+                      ? Theme.of(context).iconTheme.color
+                      : Theme.of(context).iconTheme.color,
+                  iconSize: 20,
+                  padding: EdgeInsets.zero,
                 ),
-                color: isPinned
-                    ? Theme.of(context).iconTheme.color
-                    : Theme.of(context).iconTheme.color,
-                padding: EdgeInsets.zero,
               );
             },
           ),
-          if (icon2 )
-            IconButton(
-              onPressed: () {
-                context.read<ThemeCubit>().toggleTheme();
-              },
-               icon: Icon( Theme.of(context).brightness == Brightness.dark
-                ? Icons.light_mode_outlined
-                : Icons.dark_mode_outlined,),
-                color:Theme.of(context).brightness == Brightness.dark
-                    ?AppColors.accentYellow:AppColors.secondaryColor,
-
+          if (icon2)
+            SizedBox(
+              width: 48,
+              height: 48,
+              child: IconButton(
+                onPressed: () {
+                  context.read<ThemeCubit>().toggleTheme();
+                },
+                icon: Icon(
+                  Theme.of(context).brightness == Brightness.dark
+                      ? Icons.light_mode_outlined
+                      : Icons.dark_mode_outlined,
+                ),
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? AppColors.accentYellow
+                    : AppColors.secondaryColor,
+                iconSize: 20,
+                padding: EdgeInsets.zero,
+              ),
             ),
         ],
       ),
 
       actions: [
+        if (actions != null) ...actions!,
         IconButton(
           onPressed: onPressedIcon3,
-          icon: Icon(
-            icon3,
-            color:Theme.of(context).iconTheme.color,
-          ),
+          icon: Icon(icon3, color: Theme.of(context).iconTheme.color),
         ),
       ],
 
@@ -89,15 +102,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: Theme.of(context).brightness == Brightness.dark
-                ? [
-              AppColors.darkAppBarBottom,
-              AppColors.darkAppBarTop,
-            ]
-                : [
-              AppColors.thirdColor,
-              AppColors.appBarBackground2,
-            ],
-
+                ? [AppColors.darkAppBarBottom, AppColors.darkAppBarTop]
+                : [AppColors.thirdColor, AppColors.appBarBackground2],
           ),
         ),
       ),

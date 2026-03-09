@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
+import 'package:azkari_app/features/settings/Notifications/app_lifecycle_provider.dart';
+import '../../settings/Notifications/notification_service.dart';
 import '../data/counter_repository.dart';
 import '../logic/counter_controller.dart';
 import 'counter_display.dart';
@@ -28,7 +30,6 @@ class CustomCounter extends StatefulWidget {
 }
 
 class CustomCounterState extends State<CustomCounter> {
-
   late CounterController _controller;
   late int currentCount;
 
@@ -53,8 +54,6 @@ class CustomCounterState extends State<CustomCounter> {
     currentCount = _controller.loadCount();
   }
 
-
-
   Future<void> decrement() async {
     if (currentCount <= 0) return;
 
@@ -67,6 +66,16 @@ class CustomCounterState extends State<CustomCounter> {
     final allCompleted = await _controller.handleZekrCompletion(currentCount);
 
     if (allCompleted) {
+      // Mark completion and reset progress
+      getWindowLifecycleManager().resetProgress();
+
+      // Mark the completed type (morning or evening)
+      if (widget.type == 'morning') {
+        NotificationService().markMorningCompletedToday();
+      } else if (widget.type == 'evening') {
+        NotificationService().markEveningCompletedToday();
+      }
+
       WidgetsBinding.instance.addPostFrameCallback((_) {
         widget.onAllCompleted?.call();
       });
@@ -85,7 +94,6 @@ class CustomCounterState extends State<CustomCounter> {
     final newCount = await _controller.increment(currentCount);
     setState(() => currentCount = newCount);
   }
-
 
   @override
   Widget build(BuildContext context) {
