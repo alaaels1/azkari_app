@@ -40,14 +40,18 @@ static void my_application_activate(GApplication* application) {
   if (use_header_bar) {
     GtkHeaderBar* header_bar = GTK_HEADER_BAR(gtk_header_bar_new());
     gtk_widget_show(GTK_WIDGET(header_bar));
-    gtk_header_bar_set_title(header_bar, "azkari_app");
+    gtk_header_bar_set_title(header_bar, "Azkari App");
     gtk_header_bar_set_show_close_button(header_bar, TRUE);
     gtk_window_set_titlebar(window, GTK_WIDGET(header_bar));
   } else {
-    gtk_window_set_title(window, "azkari_app");
+    gtk_window_set_title(window, "Azkari App");
   }
 
   gtk_window_set_default_size(window, 1280, 720);
+  GdkPixbuf* icon = gdk_pixbuf_new_from_file("lib/assets/photos/Logo.png", nullptr);
+  if (icon) gtk_window_set_icon(window, icon);
+
+
   gtk_widget_show(GTK_WIDGET(window));
 
   g_autoptr(FlDartProject) project = fl_dart_project_new();

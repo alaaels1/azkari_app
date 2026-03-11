@@ -34,39 +34,37 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   launch_at_startup: ^0.5.1
-  #iconify
-  iconify_flutter: ^0.0.7
+
 
   #Notifications
   flutter_local_notifications: ^21.0.0
   flutter_timezone: ^5.0.1
   timezone: ^0.11.0
 
+  http: ^1.2.0
+  package_info_plus: ^8.0.0
+  url_launcher: ^6.3.0
+
   #calendar  & Hijri Date
   table_calendar: ^3.2.0
   intl: ^0.20.2
   hijri_date: ^1.0.1
 
-  # Desktop Window
-  bitsdojo_window: ^0.1.6
 
   window_manager: ^0.5.1
 
   # Fonts
-  google_fonts: ^6.2.1
+  google_fonts: ^8.0.2
 
   # Splash Screen
   animated_splash_screen: ^1.3.0
-
-  url_launcher: ^6.3.2
-
   # State Management
   flutter_bloc: ^7.2.0
 
-  lottie: ^2.7.0
-  msix: ^3.16.13
+  flutter_screenutil: ^5.9.0
 
-#  desktop_window: ^0.4.2
+  lottie: ^2.7.0
+
 
 dev_dependencies:
   flutter_test:
@@ -90,6 +88,13 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+    - family: Alyamama
+      fonts:
+        - asset: lib/assets/fonts/Alyamama-VariableFont_wght.ttf
+
+
+
 
   # To add assets to your application, add an assets section, like this:
   assets:
@@ -97,6 +102,9 @@ flutter:
     - lib/assets/photos/Logo.png
     - lib/assets/azkar/azkar_massa.json
     - lib/assets/azkar/azkar_sabah.json
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -109,10 +117,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Nasrat
-      fonts:
-        - asset: lib/assets/nasratFont.ttf
+
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
