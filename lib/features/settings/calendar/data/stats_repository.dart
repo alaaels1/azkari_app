@@ -1,18 +1,15 @@
 import '../../../../core/main_repo/main_repo.dart';
 
-class StatsRepository extends MainRepository {
-  const StatsRepository(super.box);
 
+class StatsRepository extends MainRepository {
   Set<String> _getUniqueDates() {
     final Set<String> dates = {};
-
     for (final key in box.keys) {
       if (key.toString().contains('_completed_')) {
         final date = key.toString().split('_completed_').last;
         dates.add(date);
       }
     }
-
     return dates;
   }
 
@@ -34,11 +31,7 @@ class StatsRepository extends MainRepository {
       }
     }
 
-    return {
-      'morning': morningOnly,
-      'evening': eveningOnly,
-      'both': both,
-    };
+    return {'morning': morningOnly, 'evening': eveningOnly, 'both': both};
   }
 
   int calculateStreak() {

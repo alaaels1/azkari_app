@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
 
-/// A compact row that lets the user shift the Hijri date by -2 to +2 days.
-/// Shown only when the calendar is in Hijri mode.
 class HijriOffsetSelector extends StatelessWidget {
   final int offset;
   final ValueChanged<int> onChanged;
@@ -14,62 +13,70 @@ class HijriOffsetSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final color = Theme.of(context).primaryColor;
-    final textTheme = Theme.of(context).textTheme;
 
-    return AnimatedSize(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
+    return Directionality(
+      textDirection: TextDirection.rtl,
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         decoration: BoxDecoration(
-          color: Theme.of(context).dividerColor,
-          borderRadius: BorderRadius.circular(12),
+          color: isDark ? AppColors.darkCardBackground : AppColors.appBarBackground2,
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.06),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            // Label
             Text(
-              'ضبط التقويم الهجري',
-              style: textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
+              'ضبط التقويم',
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+                color: isDark ? AppColors.thirdColor : AppColors.secondaryColor,
+              ),
             ),
 
-            // Controls
+            const SizedBox(width: 12),
+
             Row(
               children: [
-                // Decrement
-                _CircleButton(
-                  icon: Icons.remove,
+                _SmallButton(
+                  icon: Icons.remove_rounded,
                   enabled: offset > -2,
                   color: color,
                   onTap: () => onChanged(offset - 1),
                 ),
 
-                const SizedBox(width: 8),
-
-                // Current offset display
-                SizedBox(
-                  width: 48,
-                  child: Center(
-                    child: Text(
-                      _label(offset),
-                      style: textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: offset == 0
-                            ? Theme.of(context).hintColor
-                            : color,
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 180),
+                  child: SizedBox(
+                    key: ValueKey(offset),
+                    width: 46,
+                    child: Center(
+                      child: Text(
+                        _label(offset),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: offset == 0
+                              ? (isDark ? Colors.white38 : AppColors.footerColor)
+                              : color,
+                        ),
                       ),
                     ),
                   ),
                 ),
 
-                const SizedBox(width: 8),
-
-                // Increment
-                _CircleButton(
-                  icon: Icons.add,
+                _SmallButton(
+                  icon: Icons.add_rounded,
                   enabled: offset < 2,
                   color: color,
                   onTap: () => onChanged(offset + 1),
@@ -88,13 +95,13 @@ class HijriOffsetSelector extends StatelessWidget {
   }
 }
 
-class _CircleButton extends StatelessWidget {
+class _SmallButton extends StatelessWidget {
   final IconData icon;
   final bool enabled;
   final Color color;
   final VoidCallback onTap;
 
-  const _CircleButton({
+  const _SmallButton({
     required this.icon,
     required this.enabled,
     required this.color,
@@ -106,20 +113,20 @@ class _CircleButton extends StatelessWidget {
     return GestureDetector(
       onTap: enabled ? onTap : null,
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        width: 32,
-        height: 32,
+        duration: const Duration(milliseconds: 180),
+        width: 26,
+        height: 26,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: enabled ? color.withOpacity(0.15) : Colors.transparent,
+          color: enabled ? color.withOpacity(0.12) : Colors.transparent,
           border: Border.all(
-            color: enabled ? color : Theme.of(context).disabledColor,
-            width: 1.4,
+            color: enabled ? color.withOpacity(0.5) : Theme.of(context).disabledColor,
+            width: 1.2,
           ),
         ),
         child: Icon(
           icon,
-          size: 16,
+          size: 14,
           color: enabled ? color : Theme.of(context).disabledColor,
         ),
       ),

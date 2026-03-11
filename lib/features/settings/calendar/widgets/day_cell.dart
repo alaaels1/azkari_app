@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../half_circle_indicator.dart';
+import 'half_circle_indicator.dart';
 import 'hijri_helper.dart';
 import 'calendar_type_selector.dart';
 

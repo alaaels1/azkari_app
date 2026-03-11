@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
-import '../../../core/components/custom_Appbar.dart';
+import '../../../core/components/custom_appbar.dart';
 import 'data/progress_repository.dart';
 import 'data/stats_repository.dart';
 
@@ -96,11 +96,13 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   child: FadeTransition(opacity: animation, child: child),
                 ),
                 child: (isHijri && _showOffsetSelector)
-                    ? HijriOffsetSelector(
-                        key: const ValueKey('offset'),
-                        offset: _hijriOffset,
-                        onChanged: _updateOffset,
-                      )
+                    ? Center(
+                      child: HijriOffsetSelector(
+                          key: const ValueKey('offset'),
+                          offset: _hijriOffset,
+                          onChanged: _updateOffset,
+                        ),
+                    )
                     : const SizedBox.shrink(key: ValueKey('empty')),
               ),
 
