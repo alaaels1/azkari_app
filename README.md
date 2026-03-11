@@ -55,9 +55,28 @@ A professional, lightweight, and feature-rich Islamic Adhkar (remembrances) appl
 ## 🚀 Installation
 
 ### For Users (Executable)
-1.  Go to the **Releases** section.
-2.  Download the latest `.msix` or `.zip` file for Windows.
-3.  Install/Run the application.
+
+#### Windows
+1. Go to the **Releases** section.
+2. Download the latest `.exe` file.
+3. Double-click to run — no installation needed.
+
+#### Linux (Ubuntu/Debian)
+1. Go to the **Releases** section.
+2. Download the `.deb` file.
+3. Run:
+```bash
+    sudo dpkg -i AzkariApp.deb
+```
+
+#### Linux (Other distros)
+1. Go to the **Releases** section.
+2. Download the `.AppImage` file.
+3. Run:
+```bash
+    chmod +x AzkariApp.AppImage
+    ./AzkariApp.AppImage
+```
 
 ### For Developers
 1.  **Clone the repo:**
