@@ -1,68 +1,98 @@
-# Azkari App 📿
+<div align="center">
 
-A professional, lightweight, and feature-rich Islamic Adhkar (remembrances) application specifically designed for **Windows Desktop**. It helps you maintain your daily spiritual routine with a seamless experience directly on your PC.
+<img src="https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/Logo.png" width="120" alt="Azkari Logo"/>
+
+# أذكاري — Azkari App 📿
+
+**A professional, lightweight Islamic Adhkar desktop application for Windows & Linux**
+
+[![Download Windows](https://img.shields.io/badge/Download-Windows%20.exe-0078D6?style=for-the-badge&logo=windows)](https://github.com/alaaels1/azkari_app/blob/main/releases/azkari_app.exe)
+[![Download DEB](https://img.shields.io/badge/Download-Linux%20.deb-E95420?style=for-the-badge&logo=ubuntu)](https://github.com/alaaels1/azkari_app/blob/main/releases/AzkariApp.deb)
+[![Download AppImage](https://img.shields.io/badge/Download-Linux%20.AppImage-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/alaaels1/azkari_app/blob/main/releases/AzkariApp.AppImage)
+
+![Flutter](https://img.shields.io/badge/Flutter-Desktop-02569B?style=flat-square&logo=flutter)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+
+</div>
+
+---
+
+## 📖 About
+
+Azkari helps you maintain your daily spiritual routine with a seamless desktop experience. Built with Flutter, it offers authentic morning and evening adhkar with smart reminders, progress tracking, and a distraction-free interface — right on your PC.
+
+---
+
+## 📸 Screenshots
+
+| Home Screen | Morning Azkar | Evening Azkar |
+|:---:|:---:|:---:|
+| ![Home](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/Screenshot%202026-03-11%20115457.png) | ![Morning](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarMassa.png) | ![Evening](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarMassa.png) |
+
+| Completion Screen | Progress Tracker | Settings |
+|:---:|:---:|:---:|
+| ![Completion](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarMassa.png) | ![Progress](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarMassa.png) | ![Settings](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/SettingsScreen.png) |
+
+> 💡 Replace placeholder screenshots with actual ones from your app.
 
 ---
 
 ## 🌟 Features
 
 ### 📖 Adhkar Content
-*   **Morning & Evening Azkar:** Access authentic adhkar with a clean, readable layout.
-*   **Interactive Counter:** Built-in counter for each zekr with real-time progress tracking.
-*   **Daily Stats:** Track your daily progress and completion history.
+- **Morning & Evening Azkar** — Authentic adhkar with a clean, readable layout
+- **Interactive Counter** — Built-in counter with real-time progress tracking
+- **Completion Screen** — Beautiful celebration screen when you finish all adhkar
+- **Daily Stats** — Track your daily progress and completion history
 
 ### 💻 Desktop Experience
-*   **Always on Top (Pin):** Keep the app visible while working on other tasks.
-*   **Launch at Startup:** Option to start the app automatically with Windows.
-*   **Keyboard Shortcuts:**
-    *   `Arrow Keys`: Navigate between different adhkar.
-    *   `Space / Enter / +`: Increment the current zekr counter.
-*   **Window Management:** Fully responsive design that respects Windows windowing standards.
+- **Always on Top (Pin)** — Keep the app visible while working on other tasks
+- **Launch at Startup** — Start automatically with Windows
+- **Keyboard Shortcuts:**
+  - `Arrow Keys` — Navigate between adhkar
+  - `Space / Enter / +` — Increment the counter
+- **Fully Responsive** — Respects Windows & Linux windowing standards
 
 ### 🔔 Intelligent Notifications
-*   **Time-Aware Reminders:** Notifications triggered at optimal times:
-    *   **Morning:** 5:00 AM – 3:00 PM.
-    *   **Evening:** 3:30 PM – 2:00 AM.
-*   **Incomplete Progress Alerts:** Gentle reminders if you haven't finished your daily adhkar.
+- **Morning Reminders** — 5:00 AM to 3:00 PM
+- **Evening Reminders** — 3:30 PM to 2:00 AM
+- **Incomplete Progress Alerts** — Gentle nudge if you haven't finished
 
 ### 🎨 Personalization & Tools
-*   **Dark & Light Mode:** Seamlessly switch between themes to suit your environment.
-*   **Hijri Calendar:** Integrated Hijri date display with offset adjustments.
-*   **Privacy Focused:** Full control over your data with an option to delete all local records.
-*   **Contact & Feedback:** Direct channel to communicate with the developer.
-
----
-
-## 📸 Screenshots
-
-| Home Screen | Azkar View | Settings |
-|:---:|:---:|:---:|
-| ![Home](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/Screenshot%202026-03-11%20115457.png) | ![Azkar](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarMassa.png) | ![Settings](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/SettingsScreen.png) |
+- **Dark & Light Mode** — Switch themes to suit your environment
+- **Hijri Calendar** — Integrated Hijri date with offset adjustments
+- **Progress Tracker** — Visual history of your daily completion
+- **Privacy Focused** — Full control with option to delete all local data
+- **Contact & Feedback** — Direct channel to reach the developer
 
 ---
 
 ## 🛠 Tech Stack
 
-*   **Framework:** [Flutter](https://flutter.dev) (Desktop)
-*   **State Management:** [BLoC / Cubit](https://pub.dev/packages/flutter_bloc)
-*   **Local Storage:** [Hive](https://pub.dev/packages/hive) (NoSQL, Fast & Lightweight)
-*   **Notifications:** [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications)
-*   **Window Logic:** [window_manager](https://pub.dev/packages/window_manager) & [bitsdojo_window](https://pub.dev/packages/bitsdojo_window)
-*   **Responsive UI:** [flutter_screenutil](https://pub.dev/packages/flutter_screenutil)
+| Layer | Technology |
+|---|---|
+| Framework | [Flutter](https://flutter.dev) Desktop |
+| State Management | [BLoC / Cubit](https://pub.dev/packages/flutter_bloc) |
+| Local Storage | [Hive](https://pub.dev/packages/hive) |
+| Notifications | [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) |
+| Window Management | [window_manager](https://pub.dev/packages/window_manager) |
+| Responsive UI | [flutter_screenutil](https://pub.dev/packages/flutter_screenutil) |
 
 ---
 
 ## 🚀 Installation
-### For Users (Executable)
+
+### For Users
 
 #### 🪟 Windows
-1. Download the latest `.exe` file.
+1. Download the `.exe` file below.
 2. Double-click to run — no installation needed.
 
 > [![Download for Windows](https://img.shields.io/badge/Download-Windows%20.exe-0078D6?style=for-the-badge&logo=windows)](https://github.com/alaaels1/azkari_app/blob/main/releases/azkari_app.exe)
 
 #### 🐧 Linux (Ubuntu/Debian)
-1. Download the `.deb` file.
+1. Download the `.deb` file below.
 2. Run:
 ```bash
     sudo dpkg -i AzkariApp.deb
@@ -71,7 +101,7 @@ A professional, lightweight, and feature-rich Islamic Adhkar (remembrances) appl
 > [![Download for Linux DEB](https://img.shields.io/badge/Download-Linux%20.deb-E95420?style=for-the-badge&logo=ubuntu)](https://github.com/alaaels1/azkari_app/blob/main/releases/AzkariApp.deb)
 
 #### 🐧 Linux (Other distros)
-1. Download the `.AppImage` file.
+1. Download the `.AppImage` file below.
 2. Run:
 ```bash
     chmod +x AzkariApp.AppImage
@@ -82,38 +112,48 @@ A professional, lightweight, and feature-rich Islamic Adhkar (remembrances) appl
 
 ---
 
-
-
 ### For Developers
-1.  **Clone the repo:**
-    ```bash
-    git clone https://github.com/alaaels1/azkari_app.git
-    ```
-2.  **Install dependencies:**
-    ```bash
-    flutter pub get
-    ```
-3.  **Generate Hive adapters:**
-    ```bash
-    flutter pub run build_runner build
-    ```
-4.  **Run the app:**
-    ```bash
-    flutter run -d windows
-    ```
+```bash
+# Clone the repo
+git clone https://github.com/alaaels1/azkari_app.git
+
+# Install dependencies
+flutter pub get
+
+# Generate Hive adapters
+flutter pub run build_runner build
+
+# Run on Windows
+flutter run -d windows
+
+# Run on Linux
+flutter run -d linux
+```
 
 ---
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 📧 Contact
+
+<div align="center">
 
 | | |
 |---|---|
 | 👩‍💻 **Developer** | Alaa Ayman Elsaidy |
 | 📬 **Personal Email** | alaa.elsaidy.dev@gmail.com |
 | 📩 **App Support** | azkariapp2026@gmail.com |
+
+</div>
+
+---
+
+<div align="center">
+
+*نقدم هذا العمل صدقة جارية ابتغاء وجه الله، فادعوا لنا بالقبول والمغفرة* 🤲
+
+</div>
