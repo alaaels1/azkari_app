@@ -1,16 +1,92 @@
-# azkari_app
+# Azkari App 📿
 
-A new Flutter project.
+A professional, lightweight, and feature-rich Islamic Adhkar (remembrances) application specifically designed for **Windows Desktop**. It helps you maintain your daily spiritual routine with a seamless experience directly on your PC.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🌟 Features
 
-A few resources to get you started if this is your first Flutter project:
+### 📖 Adhkar Content
+*   **Morning & Evening Azkar:** Access authentic adhkar with a clean, readable layout.
+*   **Interactive Counter:** Built-in counter for each zekr with real-time progress tracking.
+*   **Daily Stats:** Track your daily progress and completion history.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 💻 Desktop Experience
+*   **Always on Top (Pin):** Keep the app visible while working on other tasks.
+*   **Launch at Startup:** Option to start the app automatically with Windows.
+*   **Keyboard Shortcuts:**
+    *   `Arrow Keys`: Navigate between different adhkar.
+    *   `Space / Enter / +`: Increment the current zekr counter.
+*   **Window Management:** Fully responsive design that respects Windows windowing standards.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 🔔 Intelligent Notifications
+*   **Time-Aware Reminders:** Notifications triggered at optimal times:
+    *   **Morning:** 5:00 AM – 3:00 PM.
+    *   **Evening:** 3:30 PM – 2:00 AM.
+*   **Incomplete Progress Alerts:** Gentle reminders if you haven't finished your daily adhkar.
+
+### 🎨 Personalization & Tools
+*   **Dark & Light Mode:** Seamlessly switch between themes to suit your environment.
+*   **Hijri Calendar:** Integrated Hijri date display with offset adjustments.
+*   **Privacy Focused:** Full control over your data with an option to delete all local records.
+*   **Contact & Feedback:** Direct channel to communicate with the developer.
+
+---
+
+## 📸 Screenshots
+
+| Home Screen | Azkar View | Settings |
+|:---:|:---:|:---:|
+| ![Home](https://via.placeholder.com/300x200?text=Home+Screen) | ![Azkar](https://via.placeholder.com/300x200?text=Azkar+View) | ![Settings](https://via.placeholder.com/300x200?text=Settings+Screen) |
+
+---
+
+## 🛠 Tech Stack
+
+*   **Framework:** [Flutter](https://flutter.dev) (Desktop)
+*   **State Management:** [BLoC / Cubit](https://pub.dev/packages/flutter_bloc)
+*   **Local Storage:** [Hive](https://pub.dev/packages/hive) (NoSQL, Fast & Lightweight)
+*   **Notifications:** [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications)
+*   **Window Logic:** [window_manager](https://pub.dev/packages/window_manager) & [bitsdojo_window](https://pub.dev/packages/bitsdojo_window)
+*   **Responsive UI:** [flutter_screenutil](https://pub.dev/packages/flutter_screenutil)
+
+---
+
+## 🚀 Installation
+
+### For Users (Executable)
+1.  Go to the **Releases** section.
+2.  Download the latest `.msix` or `.zip` file for Windows.
+3.  Install/Run the application.
+
+### For Developers
+1.  **Clone the repo:**
+    ```bash
+    git clone https://github.com/your-username/azkari_app.git
+    ```
+2.  **Install dependencies:**
+    ```bash
+    flutter pub get
+    ```
+3.  **Generate Hive adapters:**
+    ```bash
+    flutter pub run build_runner build
+    ```
+4.  **Run the app:**
+    ```bash
+    flutter run -d windows
+    ```
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📧 Contact
+
+**Developer:** Alaa Ayman Elsaidy
+**Email:** alaa.elsaidy.dev@gmail.com
+**Official App Email:** azkariapp2026@gmail.com
