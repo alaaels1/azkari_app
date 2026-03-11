@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import '../../settings/widgets/setting_tile.dart';
-import '../../../core/constants/app_colors.dart';
-import 'package:colorful_iconify_flutter/icons/noto.dart';
+import '../../../core/components/setting_tile.dart';
 import '../cubit/startup_cubit.dart';
 
 class StartupSwitchTile extends StatelessWidget {
@@ -17,7 +14,7 @@ class StartupSwitchTile extends StatelessWidget {
         builder: (context, state) {
           return SettingTile(
             title: 'فتح تطبيق أذكاري تلقائيًا عند تشغيل الجهاز',
-            leading: const Iconify(Noto.rocket),
+            leading:  Icon(Icons.rocket_launch_rounded,color: Theme.of(context).primaryColor,),
             trailing: state is StartupLoading || state is StartupInitial
                 ? const SizedBox(
               width: 30,
@@ -26,7 +23,7 @@ class StartupSwitchTile extends StatelessWidget {
             )
                 : Switch(
               value: state is StartupEnabled,
-              activeColor: AppColors.footerColor,
+              activeColor: Theme.of(context).primaryColor ,
               onChanged: (value) =>
                   context.read<StartupCubit>().toggle(value),
             ),

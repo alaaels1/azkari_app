@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/components/custom_button.dart';
 import '../../../core/constants/app_colors.dart';
 
@@ -14,43 +15,40 @@ class AzkarButtonsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Padding(
-      padding: const EdgeInsets.all(30),
+      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomButton(
-            text: "أذكار المساء",
-            color: AppColors.thirdColor,
-            hoverColor: AppColors.basicColor,
-            textColor: AppColors.secondaryColor,
-            fontSize: size.width * 0.04,
-            height: size.height * 0.17,
-            width: size.width * 0.34,
-            radius: 5,
-            borderWidth: 0,
-            borderColor: Colors.transparent,
-            onPressed: onEveningPressed,
-            hoverTextColor: AppColors.thirdColor,
+          Flexible(
+            child: CustomButton(
+              text: "أذكار المساء",
+              tintColor: AppColors.thirdColor,
+              hoverShadowColor: AppColors.thirdColor,
+              borderColor: AppColors.thirdColor.withOpacity(0.4),
+              textColor: AppColors.secondaryColor,
+              fontSize: 28.sp,
+              height: 100.h,
+              width: 220.w,
+              radius: 5.r,
+              onPressed: onEveningPressed,
+            ),
           ),
+          SizedBox(width: 70.w),
 
-          SizedBox(width: size.height * 0.2),
-
-          CustomButton(
-            text: "أذكار الصباح",
-            color: AppColors.thirdColor,
-            hoverColor: AppColors.accentYellow,
-            textColor: AppColors.secondaryColor,
-            fontSize: size.width * 0.04,
-            height: size.height * 0.17,
-            width: size.width * 0.34,
-            radius: 5,
-            borderWidth: 0,
-            borderColor: Colors.transparent,
-            onPressed: onMorningPressed,
-            hoverTextColor: AppColors.secondaryColor,
+          Flexible(
+            child: CustomButton(
+              text: "أذكار الصباح",
+              tintColor: AppColors.accentYellow,
+              hoverShadowColor: AppColors.accentYellow,
+              borderColor: AppColors.accentYellow.withOpacity(0.4),
+              textColor: AppColors.secondaryColor,
+              fontSize: 28.sp,
+              height: 100.h,
+              width: 220.w,
+              radius: 5.r,
+              onPressed: onMorningPressed,
+            ),
           ),
         ],
       ),
