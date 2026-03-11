@@ -1,5 +1,6 @@
 import 'window_lifecycle_manager.dart';
 
+
 /// Global reference to window lifecycle manager
 late WindowLifecycleManager _windowLifecycleManager;
 
