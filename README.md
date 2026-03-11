@@ -37,7 +37,7 @@ A professional, lightweight, and feature-rich Islamic Adhkar (remembrances) appl
 
 | Home Screen | Azkar View | Settings |
 |:---:|:---:|:---:|
-| ![Home](https://via.placeholder.com/300x200?text=Home+Screen) | ![Azkar](https://via.placeholder.com/300x200?text=Azkar+View) | ![Settings](https://via.placeholder.com/300x200?text=Settings+Screen) |
+| ![Home]([https://via.placeholder.com/300x200?text=Home+Screen](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarMassa.png)) | ![Azkar](https://via.placeholder.com/300x200?text=Azkar+View) | ![Settings](https://via.placeholder.com/300x200?text=Settings+Screen) |
 
 ---
 
