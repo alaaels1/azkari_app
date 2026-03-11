@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class CounterUIHelper {
-
-
   static Color backgroundColor({
     required bool isFinished,
     required bool reachedMinimum,
@@ -21,10 +20,9 @@ abstract class CounterUIHelper {
     return Colors.blue[300]!;
   }
 
-
-  static const double outerSize = 75.0;
-  static const double innerSize = 65.0;
-  static const double strokeWidth = 4.0;
-  static const double iconSize = 30.0;
-  static const double fontSize = 22.0;
+  static double get outerSize => 75.0.r;
+  static double get innerSize => 65.0.r;
+  static double get strokeWidth => 4.0.w;
+  static double get iconSize => 30.0.r;
+  static double get fontSize => 22.0.sp;
 }

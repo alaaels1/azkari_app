@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 
 class DeleteDataDialog {
@@ -6,13 +7,16 @@ class DeleteDataDialog {
     final confirm = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text(
+        backgroundColor: Theme.of(context).cardColor ,
+        title: Text(
           'تأكيد الحذف',
           textDirection: TextDirection.rtl,
+          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold, color: Theme.of(context).textTheme.titleLarge!.color),
         ),
-        content: const Text(
-          'هل أنتِ متأكدة أنك تريدين حذف جميع البيانات؟',
+        content: Text(
+          'هل أنت متأكدة أنك تريد حذف جميع البيانات؟',
           textDirection: TextDirection.rtl,
+          style: TextStyle(fontSize: 16.sp),
         ),
         actions: [
           Row(
@@ -20,11 +24,11 @@ class DeleteDataDialog {
             children: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: const Text('لا'),
+                child: Text('لا', style: TextStyle(fontSize: 16.sp, color: Theme.of(context).primaryColor)),
               ),
               TextButton(
                 onPressed: () => Navigator.of(context).pop(true),
-                child: const Text('نعم'),
+                child: Text('نعم', style: TextStyle(fontSize: 16.sp, color: Colors.red)),
               ),
             ],
           ),
@@ -37,7 +41,14 @@ class DeleteDataDialog {
 
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('تم حذف البيانات بنجاح')),
+          SnackBar(
+        backgroundColor: Theme.of(context).primaryColor,
+            content: Text(
+              textDirection: TextDirection.rtl,
+              'تم حذف البيانات بنجاح',
+              style: TextStyle(fontSize: 16.sp),
+            ),
+          ),
         );
       }
     }
