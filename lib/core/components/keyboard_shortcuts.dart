@@ -19,7 +19,6 @@ class KeyboardShortcuts extends StatelessWidget {
   Widget build(BuildContext context) {
     return CallbackShortcuts(
       bindings: <ShortcutActivator, VoidCallback>{
-        // سهم شمال ← → الصفحة التالية
         const SingleActivator(LogicalKeyboardKey.arrowLeft): () {
           onNextPage?.call();
         },

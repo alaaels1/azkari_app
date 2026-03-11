@@ -1,6 +1,7 @@
 import 'package:azkari_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/always_on_top/always_on_top_cubit.dart';
 import '../../features/always_on_top/always_on_top_states.dart';
 import '../../features/theme/theme_cubit.dart';
@@ -21,12 +22,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(kToolbarHeight.h);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leadingWidth: 150,
+      leadingWidth: 150.w,
       elevation: 10,
       automaticallyImplyLeading: false,
       leading: Row(
@@ -36,8 +37,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             builder: (context, state) {
               final isPinned = context.read<PinCubit>().isPinned;
               return SizedBox(
-                width: 48,
-                height: 48,
+                width: 48.r,
+                height: 48.r,
                 child: IconButton(
                   onPressed: () {
                     context.read<PinCubit>().togglePin();
@@ -48,7 +49,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   color: isPinned
                       ? Theme.of(context).iconTheme.color
                       : Theme.of(context).iconTheme.color,
-                  iconSize: 20,
+                  iconSize: 20.r,
                   padding: EdgeInsets.zero,
                 ),
               );
@@ -56,8 +57,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           if (icon2)
             SizedBox(
-              width: 48,
-              height: 48,
+              width: 48.r,
+              height: 48.r,
               child: IconButton(
                 onPressed: () {
                   context.read<ThemeCubit>().toggleTheme();
@@ -70,7 +71,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 color: Theme.of(context).brightness == Brightness.dark
                     ? AppColors.accentYellow
                     : AppColors.secondaryColor,
-                iconSize: 20,
+                iconSize: 20.r,
                 padding: EdgeInsets.zero,
               ),
             ),
@@ -81,16 +82,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         if (actions != null) ...actions!,
         IconButton(
           onPressed: onPressedIcon3,
-          icon: Icon(icon3, color: Theme.of(context).iconTheme.color),
+          icon: Icon(icon3, color: Theme.of(context).iconTheme.color, size: 24.r),
         ),
       ],
 
       title: Text(
         title,
         textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 24,
-          fontFamily: "Nasrat",
+        style:  TextStyle(
+          fontFamily:"Alyamama",
+          fontSize: 32.sp,
           color: Theme.of(context).iconTheme.color,
           fontWeight: FontWeight.w800,
         ),
