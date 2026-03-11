@@ -62,7 +62,7 @@ A professional, lightweight, and feature-rich Islamic Adhkar (remembrances) appl
 ### For Developers
 1.  **Clone the repo:**
     ```bash
-    git clone https://github.com/your-username/azkari_app.git
+    git clone https://github.com/alaaels1/azkari_app.git
     ```
 2.  **Install dependencies:**
     ```bash
