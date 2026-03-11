@@ -1,20 +1,18 @@
 import 'package:azkari_app/core/constants/app_colors.dart';
-import 'package:azkari_app/features/settings/widgets/delete_data_dialog.dart';
-import 'package:azkari_app/features/settings/widgets/setting_tile.dart';
+import 'package:azkari_app/features/settings/privacy_policy/widgets/privacy_tile.dart';
+import 'package:azkari_app/core/utils/delete_data_dialog.dart';
+import 'package:azkari_app/core/components/setting_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/bi.dart';
-import 'package:iconify_flutter/icons/material_symbols.dart';
-import '../../../core/components/custom_Appbar.dart';
-import '../auto_start/widgets/startup_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import '../../../core/components/custom_appbar.dart';
+import '../auto_start/widgets/startup_tile.dart';
 import '../theme/theme_cubit.dart';
 import '../theme/theme_state.dart';
-import 'Contact_and_feedback/Contact_and_feedback_screen.dart';
+import 'Contact_and_feedback/widgets/contact_tile.dart';
+import 'Notifications/widgets/notification_tile.dart';
 import 'calendar/progress_screen.dart';
-import 'privacy_policy/privacy_policy_screen.dart';
-import 'package:colorful_iconify_flutter/icons/flat_color_icons.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -24,27 +22,6 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  late bool _notificationsEnabled;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadNotificationPreference();
-  }
-
-  Future<void> _loadNotificationPreference() async {
-    final box = Hive.box('azkarBox');
-    final enabled = box.get('notificationsEnabled', defaultValue: true) as bool;
-    setState(() {
-      _notificationsEnabled = enabled;
-    });
-  }
-
-  Future<void> _saveNotificationPreference(bool enabled) async {
-    final box = Hive.box('azkarBox');
-    await box.put('notificationsEnabled', enabled);
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeState>(
@@ -60,7 +37,7 @@ class _SettingScreenState extends State<SettingScreen> {
               title: 'الإعدادات',
             ),
             body: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.r),
               child: Directionality(
                 textDirection: TextDirection.rtl,
                 child: SingleChildScrollView(
@@ -69,48 +46,29 @@ class _SettingScreenState extends State<SettingScreen> {
                       SettingTile(
                         title: 'الوضع الليلي',
                         leading: Icon(
-                          isDarkMode ? Icons.dark_mode : Icons.light_mode,
-                          color: isDarkMode ? Colors.amber : Colors.blue[900],
+                          isDarkMode ? Icons.dark_mode : Icons.sunny,
+                          color: isDarkMode ? AppColors.accentYellow : AppColors.secondaryColor,
+                          size: 24.r,
                         ),
                         trailing: Switch(
                           value: isDarkMode,
-                          activeColor: AppColors.thirdColor,
+                          activeThumbColor: Theme.of(context).primaryColor,
                           onChanged: (_) =>
                               context.read<ThemeCubit>().toggleTheme(),
                         ),
                       ),
-
                       const Divider(),
-
-                      SettingTile(
-                        title: 'التنبيهات',
-                        leading: Icon(
-                          _notificationsEnabled
-                              ? Icons.notifications_active
-                              : Icons.notifications_off,
-                          color: _notificationsEnabled
-                              ? AppColors.thirdColor
-                              : Colors.grey,
-                        ),
-                        trailing: Switch(
-                          value: _notificationsEnabled,
-                          activeColor: AppColors.thirdColor,
-                          onChanged: (value) {
-                            setState(() {
-                              _notificationsEnabled = value;
-                            });
-                            _saveNotificationPreference(value);
-                          },
-                        ),
-                      ),
-
+                      const NotificationTile(),
                       const Divider(),
-                      StartupSwitchTile(),
+                      const StartupSwitchTile(),
                       const Divider(),
-
                       SettingTile(
                         title: 'تتبع التقدم',
-                        leading: Iconify(FlatColorIcons.calendar),
+                        leading: Icon(
+                          Icons.calendar_month,
+                          color: Theme.of(context).primaryColor,
+                          size: 24.r,
+                        ),
                         trailing: IconButton(
                           onPressed: () => Navigator.push(
                             context,
@@ -118,61 +76,32 @@ class _SettingScreenState extends State<SettingScreen> {
                               builder: (_) => const ProgressScreen(),
                             ),
                           ),
-                          icon: const Icon(Icons.chevron_right),
+                          icon: Icon(Icons.chevron_right, size: 24.r),
                         ),
                       ),
-
                       const Divider(),
-
-                      SettingTile(
-                        title: 'تواصل معنا',
-                        leading: const Iconify(
-                          MaterialSymbols.mail,
-                          color: AppColors.secondaryColor,
-                        ),
-                        trailing: IconButton(
-                          onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const ContactAndFeedbackScreen(),
-                            ),
-                          ),
-                          icon: const Icon(Icons.chevron_right),
-                        ),
-                      ),
-
+                      const PrivacyTile(),
                       const Divider(),
-
-                      SettingTile(
-                        title: 'سياسة الخصوصية',
-                        leading: const Iconify(
-                          MaterialSymbols.privacy_tip,
-                          color: AppColors.secondaryColor,
-                        ),
-                        trailing: IconButton(
-                          onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const PrivacyPolicyScreen(),
-                            ),
-                          ),
-                          icon: const Icon(Icons.chevron_right),
-                        ),
-                      ),
-
+                      const ContactAndFeedbackTile(),
                       const Divider(),
                       SettingTile(
                         title: 'حذف بياناتك',
-                        leading: const Iconify(
-                          Bi.trash3_fill,
-                          color: Colors.red,
-                        ),
+                        leading: Icon(Icons.delete, color: Colors.red, size: 24.r),
                         trailing: IconButton(
-                          icon: const Icon(Icons.chevron_right),
+                          icon: Icon(Icons.chevron_right, size: 24.r),
                           onPressed: () => DeleteDataDialog.show(context),
                         ),
                       ),
                       const Divider(),
+                      FutureBuilder(
+                        future: PackageInfo.fromPlatform(),
+                        builder: (_, snapshot) => Center(
+                          child: Text(
+                            'V${snapshot.data?.version ?? ''}',
+                            style: TextStyle(color: Colors.grey, fontSize: 16.sp),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

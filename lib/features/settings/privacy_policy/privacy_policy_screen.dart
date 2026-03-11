@@ -1,6 +1,6 @@
 import 'package:azkari_app/features/settings/privacy_policy/widgets/privacy_card_widget.dart';
 import 'package:flutter/material.dart';
-import '../../../core/components/custom_appbar.dart';
+import '../../../core/components/custom_Appbar.dart';
 import 'data/privacy_data.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
