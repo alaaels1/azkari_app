@@ -53,30 +53,36 @@ A professional, lightweight, and feature-rich Islamic Adhkar (remembrances) appl
 ---
 
 ## 🚀 Installation
-
 ### For Users (Executable)
 
-#### Windows
-1. Go to the **Releases** section.
-2. Download the latest `.exe` file.
-3. Double-click to run — no installation needed.
+#### 🪟 Windows
+1. Download the latest `.exe` file.
+2. Double-click to run — no installation needed.
 
-#### Linux (Ubuntu/Debian)
-1. Go to the **Releases** section.
-2. Download the `.deb` file.
-3. Run:
+> [![Download for Windows](https://img.shields.io/badge/Download-Windows%20.exe-0078D6?style=for-the-badge&logo=windows)](https://github.com/alaaels1/azkari_app/blob/main/releases/azkari_app.exe)
+
+#### 🐧 Linux (Ubuntu/Debian)
+1. Download the `.deb` file.
+2. Run:
 ```bash
     sudo dpkg -i AzkariApp.deb
 ```
 
-#### Linux (Other distros)
-1. Go to the **Releases** section.
-2. Download the `.AppImage` file.
-3. Run:
+> [![Download for Linux DEB](https://img.shields.io/badge/Download-Linux%20.deb-E95420?style=for-the-badge&logo=ubuntu)](https://github.com/alaaels1/azkari_app/blob/main/releases/AzkariApp.deb)
+
+#### 🐧 Linux (Other distros)
+1. Download the `.AppImage` file.
+2. Run:
 ```bash
     chmod +x AzkariApp.AppImage
     ./AzkariApp.AppImage
 ```
+
+> [![Download AppImage](https://img.shields.io/badge/Download-Linux%20.AppImage-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/alaaels1/azkari_app/blob/main/releases/AzkariApp.AppImage)
+
+---
+
+
 
 ### For Developers
 1.  **Clone the repo:**
@@ -106,6 +112,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-**Developer:** Alaa Ayman Elsaidy
-**Email:** alaa.elsaidy.dev@gmail.com
-**Official App Email:** azkariapp2026@gmail.com
+| | |
+|---|---|
+| 👩‍💻 **Developer** | Alaa Ayman Elsaidy |
+| 📬 **Personal Email** | alaa.elsaidy.dev@gmail.com |
+| 📩 **App Support** | azkariapp2026@gmail.com |
