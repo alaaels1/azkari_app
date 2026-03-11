@@ -4,6 +4,12 @@
 
 # أذكاري — Azkari App 📿
 
+<div align="center">
+
+*نقدم هذا العمل صدقة جارية ابتغاء وجه الله، فادعوا لنا بالقبول والمغفرة* 🤲
+
+</div>
+
 **A professional, lightweight Islamic Adhkar desktop application for Windows & Linux**
 
 [![Download Windows](https://img.shields.io/badge/Download-Windows%20.exe-0078D6?style=for-the-badge&logo=windows)](https://github.com/alaaels1/azkari_app/blob/main/releases/azkari_app.exe)
@@ -34,7 +40,6 @@ Azkari helps you maintain your daily spiritual routine with a seamless desktop e
 |:---:|:---:|:---:|
 | ![Completion](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarMassa.png) | ![Progress](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarMassa.png) | ![Settings](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/SettingsScreen.png) |
 
-> 💡 Replace placeholder screenshots with actual ones from your app.
 
 ---
 
