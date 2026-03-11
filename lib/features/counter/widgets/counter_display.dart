@@ -26,7 +26,6 @@ class CounterDisplay extends StatelessWidget {
     );
   }
 
-  /// الحلقة الخارجية (progress indicator)
   Widget _buildProgressRing() {
     return SizedBox(
       width: CounterUIHelper.outerSize,
@@ -45,7 +44,6 @@ class CounterDisplay extends StatelessWidget {
     );
   }
 
-  /// الدايرة الداخلية (الرقم أو الـ check)
   Widget _buildInnerCircle() {
     return Container(
       width: CounterUIHelper.innerSize,
@@ -63,7 +61,7 @@ class CounterDisplay extends StatelessWidget {
   }
 
   Widget _buildCheckIcon() {
-    return const Icon(
+    return Icon(
       Icons.check,
       color: Colors.white,
       size: CounterUIHelper.iconSize,
@@ -73,7 +71,7 @@ class CounterDisplay extends StatelessWidget {
   Widget _buildCountText() {
     return Text(
       "$currentCount",
-      style: const TextStyle(
+      style: TextStyle(
         color: Colors.white,
         fontSize: CounterUIHelper.fontSize,
         fontWeight: FontWeight.bold,

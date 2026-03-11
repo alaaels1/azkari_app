@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hive/hive.dart';
-import 'package:azkari_app/features/settings/Notifications/app_lifecycle_provider.dart';
-import '../../settings/Notifications/notification_service.dart';
+import 'package:azkari_app/features/settings/Notifications/logic/app_lifecycle_provider.dart';
+import '../../settings/Notifications/logic/notification_service.dart';
 import '../data/counter_repository.dart';
 import '../logic/counter_controller.dart';
 import 'counter_display.dart';
@@ -39,11 +38,18 @@ class CustomCounterState extends State<CustomCounter> {
     _initController();
   }
 
-  void _initController() {
-    final repository = CounterRepository(Hive.box('azkarBox'));
+  @override
+  void didUpdateWidget(CustomCounter oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Reset state if index or type changes, even if GlobalKey reuses this State
+    if (oldWidget.index != widget.index || oldWidget.type != widget.type) {
+      _initController();
+    }
+  }
 
+  void _initController() {
     _controller = CounterController(
-      repository: repository,
+      repository: CounterRepository(),
       index: widget.index,
       type: widget.type,
       repeat: widget.repeat,
@@ -51,7 +57,9 @@ class CustomCounterState extends State<CustomCounter> {
       totalAzkar: widget.totalAzkar,
     );
 
-    currentCount = _controller.loadCount();
+    setState(() {
+      currentCount = _controller.loadCount();
+    });
   }
 
   Future<void> decrement() async {
@@ -60,16 +68,13 @@ class CustomCounterState extends State<CustomCounter> {
     HapticFeedback.lightImpact();
 
     final newCount = await _controller.decrement(currentCount);
-
     setState(() => currentCount = newCount);
 
     final allCompleted = await _controller.handleZekrCompletion(currentCount);
 
     if (allCompleted) {
-      // Mark completion and reset progress
       getWindowLifecycleManager().resetProgress();
 
-      // Mark the completed type (morning or evening)
       if (widget.type == 'morning') {
         NotificationService().markMorningCompletedToday();
       } else if (widget.type == 'evening') {
@@ -99,7 +104,6 @@ class CustomCounterState extends State<CustomCounter> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: decrement,
-
       child: CounterDisplay(
         currentCount: currentCount,
         progress: _controller.progress(currentCount),
