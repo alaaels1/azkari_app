@@ -13,6 +13,7 @@ class PinCubit extends Cubit<PinState> {
     _isPinned = !_isPinned;
 
     await windowManager.setAlwaysOnTop(_isPinned);
+    await windowManager.focus();
 
     if (_isPinned) {
       emit(PinEnabled());
