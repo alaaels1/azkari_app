@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../core/components/custom_Appbar.dart';
+import '../../../core/components/custom_appbar.dart';
 import '../../../core/components/keyboard_shortcuts.dart';
 import '../../counter/data/counter_repository.dart';
 import '../../counter/logic/counter_controller.dart';
+import '../../counter/widgets/custom_counter.dart';
 import '../cubits/azkar_cubit.dart';
 import '../cubits/azkar_state.dart';
 import '../widgets/azkar_body.dart';
@@ -14,10 +15,13 @@ class AzkarMassaView extends StatefulWidget {
 
   @override
   State<AzkarMassaView> createState() => _AzkarMassaViewState();
+
 }
 
 class _AzkarMassaViewState extends State<AzkarMassaView> {
   int _currentIndex = 0;
+  final GlobalKey<CustomCounterState> _counterKey = GlobalKey<CustomCounterState>();
+
   CounterController? _controller;
 
   void _initController(int repeat, int totalAzkar) {
@@ -64,7 +68,7 @@ class _AzkarMassaViewState extends State<AzkarMassaView> {
     return KeyboardShortcuts(
       onNextPage: _goToNext,
       onPreviousPage: _goToPrevious,
-      onCount: () => _controller?.decrement(_controller!.loadCount()),
+      onCount: () => _counterKey.currentState?.decrement(),
       child: SafeArea(
         child: Scaffold(
           appBar: CustomAppBar(
@@ -75,6 +79,7 @@ class _AzkarMassaViewState extends State<AzkarMassaView> {
           ),
           body: AzkarBody(
             azkarList: azkarList,
+            counterKey: _counterKey,
             currentIndex: _currentIndex,
             controller: _controller!,
             type: "evening",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AzkarNavigationArrows extends StatelessWidget {
   final bool canGoNext;
@@ -16,25 +17,25 @@ class AzkarNavigationArrows extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double midHeight = MediaQuery.of(context).size.height * 0.4;
+    final double midHeight = 0.4.sh;
 
     return Stack(
       children: [
         Positioned(
-          left: 2,
+          left: 2.w,
           top: midHeight,
           child: IconButton(
             onPressed: canGoNext ? onNext : null,
-            icon: const Icon(Icons.arrow_back_ios),
+            icon: Icon(Icons.arrow_back_ios, size: 24.r),
           ),
         ),
 
         Positioned(
-          right: 2,
+          right: 2.w,
           top: midHeight,
           child: IconButton(
             onPressed: canGoPrevious ? onPrevious : null,
-            icon: const Icon(Icons.arrow_forward_ios),
+            icon: Icon(Icons.arrow_forward_ios, size: 24.r),
           ),
         ),
       ],

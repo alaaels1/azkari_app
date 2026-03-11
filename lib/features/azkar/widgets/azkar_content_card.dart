@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/components/custom_card.dart';
 
@@ -22,7 +23,7 @@ class AzkarContentCard extends StatelessWidget {
               text: "$zekrText\n\n",
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyMedium?.color,
-                fontSize: 22,
+                fontSize: 22.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -32,7 +33,7 @@ class AzkarContentCard extends StatelessWidget {
                 text: blessText,
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodySmall?.color,
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
           ],

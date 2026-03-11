@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:azkari_app/features/settings/Notifications/app_lifecycle_provider.dart';
+import 'package:azkari_app/features/settings/Notifications/logic/app_lifecycle_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/utils/completion_dialog.dart';
 import '../../counter/logic/counter_controller.dart';
 import '../../counter/widgets/custom_counter.dart';
@@ -16,6 +18,7 @@ class AzkarBody extends StatelessWidget {
   final String title;
   final VoidCallback onNext;
   final VoidCallback onPrevious;
+  final GlobalKey<CustomCounterState> counterKey;
 
   const AzkarBody({
     super.key,
@@ -25,7 +28,7 @@ class AzkarBody extends StatelessWidget {
     required this.type,
     required this.title,
     required this.onNext,
-    required this.onPrevious,
+    required this.onPrevious, required this.counterKey,
   });
 
   /// Update window lifecycle manager with current azkar progress
@@ -49,9 +52,21 @@ class AzkarBody extends StatelessWidget {
               currentIndex: currentIndex,
               totalCount: azkarList.length,
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 30.h),
+            Text(
+              'إجمالي الأذكار ${azkarList.length}/${currentIndex + 1}',
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: Colors.grey,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            SizedBox(height: 8.h),
             Expanded(
+
+
               child: Center(
+
                 child: AzkarContentCard(
                   zekrText: zekr.zekr,
                   blessText: zekr.bless,
@@ -59,8 +74,7 @@ class AzkarBody extends StatelessWidget {
               ),
             ),
             CustomCounter(
-              key: ValueKey('${type}_$currentIndex'),
-              index: currentIndex,
+              key: counterKey,              index: currentIndex,
               type: type,
               repeat: zekr.repeat,
               minRequired: 1,
@@ -68,7 +82,7 @@ class AzkarBody extends StatelessWidget {
               onAllCompleted: () =>
                   showCompletionDialog(context, title),
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: 40.h),
           ],
         ),
         AzkarNavigationArrows(

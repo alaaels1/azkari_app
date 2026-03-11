@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../core/components/custom_Appbar.dart';
+import '../../../core/components/custom_appbar.dart';
 import '../../../core/components/keyboard_shortcuts.dart';
-import '../../../core/utils/completion_dialog.dart';
 import '../../counter/data/counter_repository.dart';
 import '../../counter/logic/counter_controller.dart';
+import '../../counter/widgets/custom_counter.dart';
 import '../cubits/azkar_cubit.dart';
 import '../cubits/azkar_state.dart';
 import '../widgets/azkar_body.dart';
@@ -18,6 +18,8 @@ class AzkarSabahView extends StatefulWidget {
 
 class _AzkarSabahViewState extends State<AzkarSabahView> {
   int _currentIndex = 0;
+  final GlobalKey<CustomCounterState> _counterKey = GlobalKey<CustomCounterState>();
+
   CounterController? _controller;
 
   void _initController(int repeat, int totalAzkar) {
@@ -41,15 +43,7 @@ class _AzkarSabahViewState extends State<AzkarSabahView> {
     setState(() => _currentIndex--);
   }
 
-  Future<void> _onDecrement() async {
-    final count = _controller?.loadCount() ?? 0;
-    final newCount = await _controller?.decrement(count) ?? 0;
-    final allDone = await _controller?.handleZekrCompletion(newCount) ?? false;
 
-    if (allDone && mounted) {
-      showCompletionDialog(context, "أذكار الصباح");
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +68,7 @@ class _AzkarSabahViewState extends State<AzkarSabahView> {
     return KeyboardShortcuts(
       onNextPage: _goToNext,
       onPreviousPage: _goToPrevious,
-      onCount: _onDecrement,
+      onCount: () => _counterKey.currentState?.decrement(),
       child: SafeArea(
         child: Scaffold(
           appBar: CustomAppBar(
@@ -85,6 +79,7 @@ class _AzkarSabahViewState extends State<AzkarSabahView> {
           ),
           body: AzkarBody(
             azkarList: azkarList,
+            counterKey: _counterKey,
             currentIndex: _currentIndex,
             controller: _controller!,
             onNext: _goToNext,
