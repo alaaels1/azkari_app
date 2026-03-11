@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../core/constants/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class ContactEmailCard extends StatelessWidget {
   final String label;
@@ -19,12 +20,12 @@ class ContactEmailCard extends StatelessWidget {
         content: Text(
           'تم نسخ: $email',
           textDirection: TextDirection.rtl,
-          style: const TextStyle(fontFamily: 'Cairo', fontSize: 13),
+          style: TextStyle(fontFamily: 'Cairo', fontSize: 13.sp),
         ),
         backgroundColor: AppColors.secondaryColor,
         behavior: SnackBarBehavior.floating,
-        margin: const EdgeInsets.all(16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        margin: EdgeInsets.all(16.r),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
         duration: const Duration(seconds: 2),
       ),
     );
@@ -35,10 +36,10 @@ class ContactEmailCard extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+      padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 16.h),
       decoration: BoxDecoration(
         color: isDark ? AppColors.darkCardBackground : AppColors.zekrCardBackground,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
           color: isDark
               ? AppColors.thirdColor.withOpacity(0.15)
@@ -49,8 +50,8 @@ class ContactEmailCard extends StatelessWidget {
             color: isDark
                 ? Colors.black.withOpacity(0.25)
                 : AppColors.secondaryColor.withOpacity(0.06),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
+            blurRadius: 10.r,
+            offset: Offset(0, 3.h),
           ),
         ],
       ),
@@ -58,21 +59,21 @@ class ContactEmailCard extends StatelessWidget {
         children: [
           // Mail icon container
           Container(
-            width: 42,
-            height: 42,
+            width: 42.r,
+            height: 42.r,
             decoration: BoxDecoration(
               color: isDark
                   ? AppColors.thirdColor.withOpacity(0.12)
                   : AppColors.secondaryColor.withOpacity(0.08),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
             ),
             child: Icon(
               Icons.mail_outline_rounded,
-              size: 22,
+              size: 22.r,
               color: isDark ? AppColors.thirdColor : AppColors.secondaryColor,
             ),
           ),
-          const SizedBox(width: 14),
+          SizedBox(width: 14.w),
 
           Expanded(
             child: Column(
@@ -82,17 +83,17 @@ class ContactEmailCard extends StatelessWidget {
                   label,
                   style: TextStyle(
                     fontFamily: 'Cairo',
-                    fontSize: 11,
-                    color: isDark ? AppColors.footerColor : AppColors.footerColor,
+                    fontSize:16.sp,
+                    color: AppColors.footerColor,
                   ),
                 ),
-                const SizedBox(height: 3),
+                SizedBox(height: 3.h),
                 Text(
                   email,
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.w600,
-                    letterSpacing: 0.2,
+                    letterSpacing: 0.2.w,
                     color: isDark ? AppColors.darkTextColor : AppColors.secondaryColor,
                   ),
                 ),
@@ -105,12 +106,12 @@ class ContactEmailCard extends StatelessWidget {
             message: 'نسخ',
             child: InkWell(
               onTap: () => _copyEmail(context),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               child: Padding(
-                padding: const EdgeInsets.all(8),
+                padding: EdgeInsets.all(8.r),
                 child: Icon(
                   Icons.copy_rounded,
-                  size: 18,
+                  size: 22.r,
                   color: isDark ? AppColors.thirdColor : AppColors.footerColor,
                 ),
               ),

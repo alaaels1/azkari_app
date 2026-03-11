@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../core/constants/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/constants/app_colors.dart';
 
 class ContactHeader extends StatelessWidget {
   const ContactHeader({super.key});
@@ -11,8 +12,8 @@ class ContactHeader extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 82,
-          height: 82,
+          width: 82.r,
+          height: 82.r,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: isDark
@@ -22,45 +23,39 @@ class ContactHeader extends StatelessWidget {
               color: isDark
                   ? AppColors.thirdColor.withOpacity(0.25)
                   : AppColors.secondaryColor.withOpacity(0.15),
-              width: 1.5,
+              width: 1.5.w,
             ),
             boxShadow: [
               BoxShadow(
                 color: isDark
                     ? AppColors.thirdColor.withOpacity(0.08)
                     : AppColors.secondaryColor.withOpacity(0.08),
-                blurRadius: 20,
-                spreadRadius: 4,
+                blurRadius: 20.r,
+                spreadRadius: 4.r,
               ),
             ],
           ),
           child: Center(
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Icon(
-                  Icons.email_rounded,
-                  size: 38,
-                  color: isDark ? AppColors.thirdColor : AppColors.secondaryColor,
-                ),
-
-              ],
+            child: Icon(
+              Icons.email_rounded,
+              size: 38.r,
+              color: isDark ? AppColors.thirdColor : AppColors.secondaryColor,
             ),
           ),
         ),
-        const SizedBox(height: 18),
+        SizedBox(height: 18.h),
 
         // Title
         Text(
-          'تواصل معنا',
+          'شاركنا رأيك',
           style: TextStyle(
-            fontFamily: 'Nasrat',
-            fontSize: 22,
+            fontFamily: 'Alyamama',
+            fontSize: 22.sp,
             fontWeight: FontWeight.w800,
             color: isDark ? AppColors.darkTextColor : AppColors.secondaryColor,
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
 
         // Subtitle
         Text(
@@ -68,9 +63,9 @@ class ContactHeader extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: 'Cairo',
-            fontSize: 13,
+            fontSize: 16.sp,
             height: 1.6,
-            color: AppColors.footerColor,
+            color: Theme.of(context).primaryColor,
           ),
         ),
       ],
