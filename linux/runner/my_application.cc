@@ -48,7 +48,7 @@ static void my_application_activate(GApplication* application) {
   }
 
   gtk_window_set_default_size(window, 1280, 720);
-  GdkPixbuf* icon = gdk_pixbuf_new_from_file("lib/assets/photos/Logo.png", nullptr);
+  GdkPixbuf* icon = gdk_pixbuf_new_from_file("assets/photos/Logo.png", nullptr);
   if (icon) gtk_window_set_icon(window, icon);
 
 

@@ -91,17 +91,17 @@ flutter:
   fonts:
     - family: Alyamama
       fonts:
-        - asset: lib/assets/fonts/Alyamama-VariableFont_wght.ttf
+        - asset: assets/fonts/Alyamama-VariableFont_wght.ttf
 
 
 
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/assets/
-    - lib/assets/photos/Logo.png
-    - lib/assets/azkar/azkar_massa.json
-    - lib/assets/azkar/azkar_sabah.json
+    - assets/
+    - assets/photos/Logo.png
+    - assets/azkar/azkar_massa.json
+    - assets/azkar/azkar_sabah.json
 
 
 
