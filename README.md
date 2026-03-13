@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/Logo.png" width="120" alt="Azkari Logo"/>
+<img src="https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/assets/photos/Logo.png" width="120" alt="Azkari Logo"/>
 
 # أذكاري — Azkari App 📿
 
