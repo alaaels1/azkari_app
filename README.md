@@ -11,7 +11,7 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey?style=for-the-badge)
 
 
-*أقدم هذا العمل صدقةً جاريةً لوجه الله، ولا تنسوني من دعائكم بالمغفرة والرحمة.* 🤲
+*أقدم هذا العمل صدقةً جاريةً لوجه الله، ولا تنسوني من دعائكم.* 🤲
 
 **A professional, lightweight Islamic Azkar desktop application for Windows & Linux**
 
