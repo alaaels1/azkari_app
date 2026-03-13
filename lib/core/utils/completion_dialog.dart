@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../features/settings/calendar/progress_screen.dart';
 
 void showCompletionDialog(BuildContext context, String azkarType) {
@@ -27,41 +28,41 @@ void showCompletionDialog(BuildContext context, String azkarType) {
                     color: Colors.green,
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child:  Icon(
                     Icons.check,
                     color: Colors.white,
-                    size: 50,
+                    size: 50.sp,
                   ),
                 ),
 
                 const SizedBox(height: 20),
 
-                const Text(
-                  "🎉 مبروك!",
+                 Text(
+                  "👏أحسنت",
                   style: TextStyle(
-                    fontSize: 26,
+                    fontSize: 26.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
 
-                const SizedBox(height: 12),
+                 SizedBox(height: 12.h),
 
                 Text(
                   "أكملت $azkarType",
-                  style: const TextStyle(fontSize: 18),
+                  style:  TextStyle(fontSize: 18.sp),
                 ),
 
-                const SizedBox(height: 8),
+                 SizedBox(height: 8.sp),
 
-                const Text(
-                  "جعله الله في ميزان حسناتك 🤲",
+                 Text(
+                  "🤲 جعله الله في ميزان حسناتك ",
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     color: Colors.grey,
                   ),
                 ),
 
-                const SizedBox(height: 24),
+                 SizedBox(height: 24.h),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -76,9 +77,9 @@ void showCompletionDialog(BuildContext context, String azkarType) {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 24,
-                          vertical: 12,
+                        padding:  EdgeInsets.symmetric(
+                          horizontal: 24.h,
+                          vertical: 12.w,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -86,12 +87,13 @@ void showCompletionDialog(BuildContext context, String azkarType) {
                       ),
                       onPressed: () {
                         Navigator.pop(context);
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (_) => const ProgressScreen(),
                           ),
                         );
+
                       },
                       child: const Text(
                         "متابعة التقدم 📊",

@@ -14,8 +14,8 @@ class AzkarCubit extends Cubit<AzkarStates> {
       emit(AzkarLoading());
 
       String path = type == ZekrType.morning
-          ? 'lib/assets/azkar/azkar_sabah.json'
-          : 'lib/assets/azkar/azkar_massa.json';
+          ? 'assets/azkar/azkar_sabah.json'
+          : 'assets/azkar/azkar_massa.json';
 
       final jsonString = await rootBundle.loadString(path);
       final data = json.decode(jsonString);
