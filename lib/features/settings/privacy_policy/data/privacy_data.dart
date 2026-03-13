@@ -1,20 +1,21 @@
-import 'package:azkari_app/features/settings/privacy_policy/data/privacy_model.dart';
 
-const List<PrivacySection> privacySections = [
-  PrivacySection(
+import '../../../../core/components/models/info_model.dart';
+
+const List<InfoSection> privacySections = [
+  InfoSection(
     title: 'مقدمة',
     content:
     'نحن في تطبيق أذكاري نولي أهمية كبيرة لخصوصية مستخدمينا. '
         'توضح هذه السياسة كيفية تعاملنا مع البيانات عند استخدامك لتطبيقنا على سطح المكتب.',
   ),
-  PrivacySection(
+  InfoSection(
     title: 'جمع البيانات',
     content:
     'تطبيق أذكاري هو تطبيق يعمل دون الحاجة للاتصال بالإنترنت. '
         'نحن لا نقوم بجمع أو تخزين أو مشاركة أي بيانات شخصية على خوادم خارجية. '
         'جميع إعداداتك وتفضيلاتك يتم تخزينها محلياً فقط على جهازك باستخدام Hive.',
   ),
-  PrivacySection(
+  InfoSection(
     title: 'أذونات التطبيق',
     content:
     'قد يطلب التطبيق أذونات معينة للعمل بشكل صحيح:\n'
@@ -22,13 +23,13 @@ const List<PrivacySection> privacySections = [
         '• التثبيت فوق التطبيقات الأخرى: لميزة الدبوس التي تسمح ببقاء التطبيق ظاهراً دائماً.\n'
         'هذه الأذونات تُستخدم فقط لتحسين تجربة المستخدم.',
   ),
-  PrivacySection(
+  InfoSection(
     title: 'تغييرات سياسة الخصوصية',
     content:
     'قد نقوم بتحديث سياسة الخصوصية من وقت لآخر. '
         'سيتم نشر أي تغييرات في هذه الصفحة داخل التطبيق.',
   ),
-  PrivacySection(
+  InfoSection(
     title: 'اتصل بنا',
     content:
     'إذا كان لديك أي أسئلة حول سياسة الخصوصية، '

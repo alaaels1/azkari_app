@@ -5,13 +5,13 @@ import 'package:azkari_app/core/components/setting_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import '../../../core/components/custom_appbar.dart';
 import '../auto_start/widgets/startup_tile.dart';
 import '../theme/theme_cubit.dart';
 import '../theme/theme_state.dart';
 import 'Contact_and_feedback/widgets/contact_tile.dart';
 import 'Notifications/widgets/notification_tile.dart';
+import 'about/widgets/about_tile.dart';
 import 'calendar/progress_screen.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -82,6 +82,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       const Divider(),
                       const PrivacyTile(),
                       const Divider(),
+                      AboutTile(),
+                      const Divider(),
                       const ContactAndFeedbackTile(),
                       const Divider(),
                       SettingTile(
@@ -93,15 +95,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         ),
                       ),
                       const Divider(),
-                      FutureBuilder(
-                        future: PackageInfo.fromPlatform(),
-                        builder: (_, snapshot) => Center(
-                          child: Text(
-                            'V${snapshot.data?.version ?? ''}',
-                            style: TextStyle(color: Colors.grey, fontSize: 16.sp),
-                          ),
-                        ),
-                      ),
+
                     ],
                   ),
                 ),

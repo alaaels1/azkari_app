@@ -11,7 +11,7 @@ class AppSplashScreen {
           : AppColors.backgroundDarkMode,
       splash: const CircleAvatar(
         radius: 132,
-        backgroundImage: AssetImage("lib/assets/photos/Logo.png"),
+        backgroundImage: AssetImage("assets/photos/Logo.png"),
         backgroundColor: Colors.transparent,
       ),
       splashIconSize: 200,
