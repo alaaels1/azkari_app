@@ -95,23 +95,22 @@ Azkari helps you maintain your daily spiritual routine with a seamless desktop e
 
 > [![Download for Windows](https://img.shields.io/badge/Download-Windows%20.exe-0078D6?style=for-the-badge&logo=windows)](https://github.com/alaaels1/azkari_app/releases/download/v1.0.0/azkari_app.exe)
 
-#### 🐧 Linux (Ubuntu/Debian)
+#### 🐧 Linux (Debian/Ubuntu)
 1. Download the `.deb` file below.
 2. Run:
 ```bash
-    sudo dpkg -i AzkariApp.deb
+sudo dpkg -i AzkariApp.deb
+azkari_app
 ```
+> [![Download Deb](https://img.shields.io/badge/Download-Linux%20.deb-orange?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/alaaels1/azkari_app/releases/download/v1.0.0/AzkariApp.deb)
 
-> [![Download for Linux DEB](https://img.shields.io/badge/Download-Linux%20.deb-E95420?style=for-the-badge&logo=ubuntu)](https://github.com/alaaels1/azkari_app/releases/download/v1.0.0/AzkariApp.deb)
-
-#### 🐧 Linux (Other distros)
+#### 🐧 Linux (AppImage)
 1. Download the `.AppImage` file below.
 2. Run:
 ```bash
-    chmod +x AzkariApp.AppImage
-    ./AzkariApp.AppImage
+chmod +x AzkariApp.AppImage
+./AzkariApp.AppImage --appimage-extract-and-run
 ```
-
 > [![Download AppImage](https://img.shields.io/badge/Download-Linux%20.AppImage-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/alaaels1/azkari_app/releases/download/v1.0.0/AzkariApp.AppImage)
 
 ---
