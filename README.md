@@ -98,6 +98,7 @@ Azkari helps you maintain your daily spiritual routine with a seamless desktop e
 1. Download the `.deb` file below.
 2. Run:
 ```bash
+cd ~/Downloads
 sudo dpkg -i AzkariApp.deb
 azkari_app
 ```
@@ -107,6 +108,7 @@ azkari_app
 1. Download the `.AppImage` file below.
 2. Run:
 ```bash
+cd ~/Downloads
 chmod +x AzkariApp.AppImage
 ./AzkariApp.AppImage --appimage-extract-and-run
 ```
