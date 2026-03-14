@@ -5,7 +5,6 @@
 # أذكاري — Azkari App 📿
 
 ![Stars](https://img.shields.io/github/stars/alaaels1/azkari_app?style=for-the-badge&logo=github&color=6A5ACD)
-![Downloads](https://img.shields.io/github/downloads/alaaels1/azkari_app/total?style=for-the-badge&color=2E8B57)
 ![License](https://img.shields.io/github/license/alaaels1/azkari_app?style=for-the-badge&color=FF8C00)
 ![Flutter](https://img.shields.io/badge/Flutter-Desktop-42A5F5?style=for-the-badge&logo=flutter)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-708090?style=for-the-badge)
