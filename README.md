@@ -5,7 +5,7 @@
 # أذكاري — Azkari App 📿
 
 ![Stars](https://img.shields.io/github/stars/alaaels1/azkari_app?style=for-the-badge&logo=github&color=6A5ACD)
-![Downloads](https://img.shields.io/github/downloads/alaaels1/azkari_app/total?style=for-the-badge&color=20B2AA)
+![Downloads](https://img.shields.io/github/downloads/alaaels1/azkari_app/total?style=for-the-badge&color=2E8B57)
 ![License](https://img.shields.io/github/license/alaaels1/azkari_app?style=for-the-badge&color=FF8C00)
 ![Flutter](https://img.shields.io/badge/Flutter-Desktop-42A5F5?style=for-the-badge&logo=flutter)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-708090?style=for-the-badge)
@@ -34,11 +34,11 @@ Azkari helps you maintain your daily spiritual routine with a seamless desktop e
 
 | Home Screen | Morning Azkar | Evening Azkar |
 |:---:|:---:|:---:|
-| ![Home](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/Screenshot%202026-03-11%20115457.png) | ![Morning](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarSabah.png) | ![Evening](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/AzkarMassa.png) |
+| ![Home](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/assets/photos/home.png) | ![Morning](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/assets/photos/azkar_sabah.png) | ![Evening](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/assets/photos/azkar_masaa.png) |
 
 | Completion Screen | Progress Tracker | Settings |
 |:---:|:---:|:---:|
-| ![Completion](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/CompilationDialog.png) | ![Progress](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/ProgressCalendar.png) | ![Settings](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/lib/assets/photos/SettingsScreen.png) |
+| ![Completion](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/assets/photos/compelation_dialog.png) | ![Progress](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/assets/photos/progress.png) | ![Settings](https://raw.githubusercontent.com/alaaels1/azkari_app/refs/heads/main/assets/photos/settings.png) |
 
 ---
 
