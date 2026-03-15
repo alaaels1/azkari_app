@@ -15,6 +15,7 @@
 **A professional, lightweight Islamic Azkar desktop application for Windows & Linux**
 
 [![Download Windows](https://img.shields.io/badge/Download-Windows%20.exe-0078D6?style=for-the-badge&logo=windows)](https://github.com/alaaels1/azkari_app/releases/download/v1.0.0/azkari_app.exe)
+[![Download Windows (No Warning)](https://img.shields.io/badge/Download-Windows%20(Signed)-28A745?style=for-the-badge&logo=windows)](https://github.com/alaaels1/azkari_app/releases/download/v1.0.0/azkari_app_warning_free.exe)
 [![Download DEB](https://img.shields.io/badge/Download-Linux%20.deb-E95420?style=for-the-badge&logo=ubuntu)](https://github.com/alaaels1/azkari_app/releases/download/v1.0.0/AzkariApp.deb)
 [![Download AppImage](https://img.shields.io/badge/Download-Linux%20.AppImage-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/alaaels1/azkari_app/releases/download/v1.0.0/AzkariApp.AppImage)
 
