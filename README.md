@@ -28,6 +28,10 @@
 Azkari helps you maintain your daily spiritual routine with a seamless desktop experience. Built with Flutter, it offers authentic morning and evening adhkar with smart reminders, progress tracking, and a distraction-free interface — right on your PC.
 
 ---
+## 🎬 Demo Video
+
+[![Watch the Demo](https://img.youtube.com/vi/P5W359WkOT0/maxresdefault.jpg)](https://youtu.be/P5W359WkOT0)
+
 
 ## 📸 Screenshots
 
