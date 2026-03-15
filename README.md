@@ -139,15 +139,17 @@ flutter run -d windows
 flutter run -d linux
 ```
 
+---
+
 ## 📚 Data Source & Credits
 
-The adhkar content used in this application is partially adapted from the following open-source repository:
+The adhkar content used in this application is partially adapted from an open-source repository by  
+[@AbdelrahmanBayoumi](https://github.com/AbdelrahmanBayoumi).
 
-🔗 https://github.com/AbdelrahmanBayoumi/morning-evening-adhkar
+🔗 Source Repository:  
+https://github.com/AbdelrahmanBayoumi/morning-evening-adhkar
 
-Full credit goes to the original author **Abdelrahman Bayoumi** for collecting and organizing the adhkar data.
-
-Note: The data has been modified and adapted to fit the structure and features of this application.
+The data was adapted and modified to fit the structure and features of this application.
 
 ---
 ---
